@@ -29,3 +29,11 @@ export const Bar = styled.div`
     }
   }
 `;
+
+export const Block = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 90vh;
+`;

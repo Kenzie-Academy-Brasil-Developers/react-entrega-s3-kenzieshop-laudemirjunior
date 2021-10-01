@@ -11,6 +11,7 @@ const GlobalStyle = createGlobalStyle`
   .App {
     width: 100vw;
     min-height: 100vh;
+    background-color: #e3e3e3;
 }
 button {
     height: 30px;

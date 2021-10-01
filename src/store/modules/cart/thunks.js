@@ -1,4 +1,4 @@
-import { addToCart, removeFromCart } from "./actions";
+import { addToCart, removeFromCart, removeFromCartTotal } from "./actions";
 
 export const addToCartThunk = (product) => {
   return (dispatch) => {
@@ -14,4 +14,9 @@ export const removeFromCartThunk = (sold) => (dispatch, getStore) => {
   const list = cart.filter((product) => product !== sold);
   localStorage.setItem("cart", JSON.stringify(list));
   dispatch(removeFromCart(list));
+};
+
+export const removeFromCartThunkTotal = () => (dispatch) => {
+  localStorage.setItem("cart", JSON.stringify([]));
+  dispatch(removeFromCartTotal([]));
 };
