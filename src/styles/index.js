@@ -25,6 +25,7 @@ button {
     }
 }
     h2 {
+      margin-left: 10px;
       color: blue;
   
 }

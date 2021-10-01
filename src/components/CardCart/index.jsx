@@ -6,11 +6,16 @@ const CardCart = ({ item }) => {
   const dispatch = useDispatch();
   return (
     <Container>
-      <p>{item.name.slice(0, 60).concat("...")}</p>
+      <p>{item.name}</p>
       <div>
         <img src={item.image} alt={item.name} />
         <Block>
-          <span>R${item.price.toFixed(2).replace(".", ",")}</span>
+          <span>
+            {item.price.toLocaleString("pt-br", {
+              style: "currency",
+              currency: "BRL",
+            })}
+          </span>
           <button onClick={() => dispatch(removeFromCartThunk(item))}>
             Remover
           </button>

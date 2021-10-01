@@ -22,10 +22,11 @@ export const Bar = styled.div`
     justify-content: space-between;
     margin: auto;
     spam {
-      margin: 0 10px;
+      margin-right: 10px;
     }
     button {
       background-color: lightgreen;
+      margin-right: 10px;
     }
   }
 `;
@@ -36,4 +37,8 @@ export const Block = styled.div`
   align-items: center;
   width: 100%;
   height: 90vh;
+  flex-direction: column;
+  button {
+    background-color: lightgreen;
+  }
 `;

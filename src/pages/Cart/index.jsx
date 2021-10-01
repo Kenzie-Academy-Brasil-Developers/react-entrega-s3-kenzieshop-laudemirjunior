@@ -8,7 +8,7 @@ import { removeFromCartThunkTotal } from "../../store/modules/cart/thunks";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
 import Lottie from "react-lottie";
-import animationData from "../../components/animation/loader.json";
+import animationData from "../../animation/wind.json";
 
 const Cart = () => {
   const [animationState, setAnimationState] = useState({
@@ -23,8 +23,10 @@ const Cart = () => {
   const total = () => {
     return cart
       .reduce((acc, total) => acc + total.price, 0)
-      .toFixed(2)
-      .replace(".", ",");
+      .toLocaleString("pt-br", {
+        style: "currency",
+        currency: "BRL",
+      });
   };
 
   const notify = () => toast("Compra concluída com sucesso!");
@@ -44,7 +46,7 @@ const Cart = () => {
         <article>
           <h2 onClick={() => history.push("/")}>Shop</h2>
           <div>
-            <spam>R${total()}</spam>
+            <spam>{total()}</spam>
             <button
               onClick={() => {
                 dispatch(removeFromCartThunkTotal());
@@ -61,14 +63,17 @@ const Cart = () => {
       })}
       <Block>
         {cart.length === 0 ? (
-          <Lottie
-            options={defaultOptions}
-            height={400}
-            width={400}
-            speed={0.75}
-            isStopped={animationState.isStopped}
-            isPaused={animationState.isPaused}
-          />
+          <>
+            <Lottie
+              options={defaultOptions}
+              height={400}
+              width={400}
+              speed={0.75}
+              isStopped={animationState.isStopped}
+              isPaused={animationState.isPaused}
+            />
+            <button onClick={() => history.push("/")}>Voltar a home</button>
+          </>
         ) : null}
       </Block>
       <ToastContainer />
