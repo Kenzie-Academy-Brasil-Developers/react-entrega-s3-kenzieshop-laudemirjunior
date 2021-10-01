@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
     border: none;
     outline: none;
   }
-  body {
+  .App {
     width: 100vw;
     min-height: 100vh;
 }
