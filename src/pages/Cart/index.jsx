@@ -53,7 +53,7 @@ const Cart = () => {
                 notify();
               }}
             >
-              Finalizar compra
+              Finalizar compra :)
             </button>
           </div>
         </article>
